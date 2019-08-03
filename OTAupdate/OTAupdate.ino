@@ -11,7 +11,7 @@
 #define APPSK  "APPSK"
 #endif
 
-const int FW_VERSION = 22;
+const int FW_VERSION = 23;
 
 String FW_HTTP_VERSION  = "http://nazzetta.com/OTAupdate/version.json";
 String FW_HTTP_DOWNLOAD = "http://nazzetta.com/OTAupdate/OTAupdate.ino.d1_mini.bin";
