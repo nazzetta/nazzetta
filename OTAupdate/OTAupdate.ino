@@ -1,3 +1,4 @@
+
 #include <Arduino.h>
 
 #include <ESP8266WiFi.h>
@@ -51,6 +52,7 @@ void loop() {
 	if ((wifiMulti.run() == WL_CONNECTED)) {
 
 		WiFiClient client;
+
 
 		HTTPClient httpClient;
 		httpClient.begin( FW_HTTP_VERSION );
