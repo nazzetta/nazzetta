@@ -74,8 +74,11 @@
         }
 
         function toWpp() {
+            let countdown = window.setTimeout(function () {
+                    toggle_wppBtn();
+                }, 300);
+
             location.href = "https://api.whatsapp.com/send?phone=17657728164";
-            toggle_wppBtn();
         }
 
         let count = 0;
