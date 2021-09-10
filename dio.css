@@ -56,6 +56,10 @@ h6 {
 	left: 0;
 }
 
+.wa_button {
+	background-color:#25d366;
+}
+
 .shake {
 	animation: shake-animation 8.00s ease infinite;
 	transform-origin: 50% 50%;
