@@ -19,7 +19,7 @@
     <div class="container">
     <div class="col-xs-12">
             <div class="text-center" style="padding-top: 30px; padding-bottom: 30px;">
-                <img class="backdrop linktree" onclick="toggle_wppBtn()">
+                <img id="avatar" class="backdrop linktree">
                 <h2 style="color: #ffffff; padding-top: 20px;">Dio Nazzetta</h2>
             </div>
     </div>
@@ -63,20 +63,67 @@
 
     <script>
         var clickCounts = 0;
-        function toggle_wppBtn() {
-            clickCounts += 1;
-            if(clickCounts >= 3) {
-                var element = document.getElementById("WAButton");
+        var wppBtnState = false;
 
-                if (element.style.display == "none")   { element.style.display = "block"; }
-                else                                   { element.style.display = "none"; clickCounts = 0; }
-            }
+        function toggle_wppBtn() {
+            var element = document.getElementById("WAButton");
+
+            wppBtnState = !wppBtnState;
+            if (wppBtnState)    { element.style.display = "block"; }
+            else                { element.style.display = "none";  }
         }
 
         function toWpp() {
             location.href = "https://api.whatsapp.com/send?phone=17657728164";
             toggle_wppBtn();
         }
+
+        let count = 0;
+        let elements = new Map();
+
+        document.getElementById('avatar').addEventListener('click', function (event) {
+            let countdown;
+            
+            function reset () {
+                // console.log('RESET');
+                count = 0;
+                countdown = null;
+            }
+            
+            count++;
+            
+            if (count >= 3) {
+                if (!elements.has(event.target)) {
+                    elements.set(event.target, 1);
+                } else {
+                    let currentCount = elements.get(event.target);
+                    currentCount++;
+                    elements.set(event.target, currentCount);
+                }
+                
+                let tripleClick = new CustomEvent('trplclick', {
+                    bubbles: true,
+                    detail: {
+                        numberOfTripleClicks: elements.get(event.target)
+                    }
+                });
+                
+                event.target.dispatchEvent(tripleClick);
+                reset();
+            }
+            
+            if (!countdown) {
+                countdown = window.setTimeout(function () {
+                    reset();
+                }, 700);
+            }
+        });
+
+        document.addEventListener('trplclick', function (event) {
+            toggle_wppBtn();
+            // console.log('This element has been triple clicked', event.detail.numberOfTripleClicks, 'times');
+        });
+
     </script>
 
 </body>
