@@ -2,7 +2,7 @@ body {
 	width: 100wh;
 	height: 90vh;
 	color: #fff;
-	background: linear-gradient(-45deg, #631c24, #ca3636, #638b8b, #051c24);
+	background: linear-gradient(-45deg, #631c24, #ca3636, #a38762, #638b8b, #0c4357);
 	background-size: 400% 400%;
 	-webkit-animation: Gradient 15s ease infinite;
 	-moz-animation: Gradient 15s ease infinite;
@@ -57,7 +57,7 @@ h6 {
 }
 
 .shake {
-	animation: shake-animation 4.72s ease infinite;
+	animation: shake-animation 8.00s ease infinite;
 	transform-origin: 50% 50%;
   }
   .element {
@@ -67,15 +67,26 @@ h6 {
 	background: red;
   }
   @keyframes shake-animation {
-	 0% { transform:translate(0,0) }
-	1.78571% { transform:translate(5px,0) }
-	3.57143% { transform:translate(0,0) }
-	5.35714% { transform:translate(5px,0) }
-	7.14286% { transform:translate(0,0) }
-	8.92857% { transform:translate(5px,0) }
-	10.71429% { transform:translate(0,0) }
-	100% { transform:translate(0,0) }
+	0% 		 { transform:translate(0,	0) }
+	1% { transform:translate(5px,	0) }
+	2% { transform:translate(0,	0) }
+	3% { transform:translate(5px,	0) }
+	4% { transform:translate(0,	0) }
+	5% { transform:translate(5px,	0) }
+	6% { transform:translate(0,	0) }
+	100%	 { transform:translate(0,	0) }
   }
+/*  @keyframes shake-animation {
+	0% 		 { transform:translate(0,	0) }
+	1.78571% { transform:translate(5px,	0) }
+	3.57143% { transform:translate(0,	0) }
+	5.35714% { transform:translate(5px,	0) }
+	7.14286% { transform:translate(0,	0) }
+	8.92857% { transform:translate(5px,	0) }
+	10.71429% { transform:translate(0,	0) }
+	100%	 { transform:translate(0,	0) }
+  }
+*/
 
   .backdrop {
 	  -moz-box-shadow: 0px 6px 5px #111; 
