@@ -19,7 +19,7 @@
     <div class="container">
     <div class="col-xs-12">
             <div class="text-center" style="padding-top: 30px; padding-bottom: 30px;">
-                <img class="backdrop linktree" onclick="toggle_whatsapp()">
+                <img class="backdrop linktree" onclick="toggle_wppBtn()">
                 <h2 style="color: #ffffff; padding-top: 20px;">Dio Nazzetta</h2>
             </div>
     </div>
@@ -30,7 +30,7 @@
     <div class="col-xs-12">
             <div class="text-center">
                 <div id="WAButton" style="padding-bottom: 30px; display: none;">
-                    <button onclick="location.href='https://api.whatsapp.com/send?phone=17657728164'" type="button" class="btn btn-outline-light" style="width: 80%; padding-top:10px; padding-bottom:10px; font-weight: 800; background-color:#25d366;">Whatsapp</button>
+                    <button onclick="toWpp()" type="button" class="btn btn-outline-light" style="width: 80%; padding-top:10px; padding-bottom:10px; font-weight: 800; background-color:#25d366;">Whatsapp</button>
                 </div>
                 <div style="padding-bottom: 30px;">
                     <button onclick="location.href='http://linkedin.com/in/nazzetta/'" type="button" class="btn btn-outline-light shake" style="width: 80%; padding-top:10px; padding-bottom:10px; font-weight: 800;">Connect on LinkedIn</button>
@@ -63,7 +63,7 @@
 
     <script>
         var clickCounts = 0;
-        function toggle_whatsapp() {
+        function toggle_wppBtn() {
             clickCounts += 1;
             if(clickCounts >= 3) {
                 var element = document.getElementById("WAButton");
@@ -73,9 +73,9 @@
             }
         }
 
-        function toWhatsapp() {
-            location.href = "https://www.w3schools.com";
-            toggle_whatsapp();
+        function toWpp() {
+            toggle_wppBtn();
+            location.href = "https://api.whatsapp.com/send?phone=17657728164";
         }
     </script>
 
