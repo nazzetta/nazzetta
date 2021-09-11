@@ -64,9 +64,9 @@
 	<script>
 		var url_string = window.location.href;
 		var url = new URL(url_string);
-		var wpp = url.searchParams.get("wpp").toLowerCase() === 'true';
-
-		if (wpp)	toggle_wppBtn();
+		// var wpp = url.searchParams.get("wpp");
+		var wpp = url.searchParams.get("wpp") ? url.searchParams.get("wpp").toLowerCase() : false;
+		var wpp_bool = wpp === 'true' || wpp === 't';
 
 		var clickCounts = 0;
 		var wppBtnState = false;
@@ -86,6 +86,8 @@
 
 			location.href = "https://api.whatsapp.com/send?phone=17657728164";
 		}
+
+		if (wpp_bool)	document.getElementById("WAButton").style.display = "block";
 
 		let count = 0;
 		let elements = new Map();
