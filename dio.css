@@ -113,4 +113,8 @@ h6 {
 	transition-timing-function: ease;
 	transition-duration: 0.5s;
 }
-.linktree:hover { background-image: url("./img/qr_main.png"); }
+.linktree:hover {
+	background-image: url("./img/qr_main.png");
+	width: 180px;
+	height: 180px;
+}
