@@ -19,7 +19,7 @@
 	<div class="container">
 		<div class="col-xs-12">
 				<div class="text-center" style="padding-top: 30px; padding-bottom: 30px;">
-					<img id="avatar" class="backdrop linktree">
+					<img id="avatar" class="backdrop linktree" >
 					<h2 style="color: #ffffff; padding-top: 20px;">Dio Nazzetta</h2>
 				</div>
 		</div>
@@ -74,6 +74,17 @@
 		var wppBtnState = false;
 
 		// console.log(testlink);
+
+		var avatar_pic = false;
+
+		function change_bg_img() {
+			avatar_pic = !avatar_pic;
+
+			if (avatar_pic)
+				document.getElementById('avatar').style.backgroundImage = "url('img/profile_ig.png')";
+			else
+				document.getElementById('avatar').style.backgroundImage = "url('img/qr_main.png')";
+		}
 
 		function toggle_wppBtn() {
 			var element = document.getElementById("WAButton");
