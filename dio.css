@@ -58,6 +58,7 @@ h6 {
 
 .wa_button {
 	background-color:#25d366;
+	transition-duration: 0.5s;
 }
 
 .shake {
@@ -121,8 +122,8 @@ h6 {
 	transition-timing-function: ease;
 	transition-duration: 0.5s;
 }
-.linktree:active {
+/*.linktree:active {
 	background-image: url("./img/qr_main.png");
 	width: 180px;
 	height: 180px;
-}
+}*/

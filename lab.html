@@ -18,19 +18,25 @@
 <body scroll="no" style="overflow: hidden">
 	<div class="container">
 		<div class="col-xs-12">
-				<div class="text-center" style="padding-top: 30px; padding-bottom: 30px;">
-					<img id="avatar" class="backdrop linktree disable-select" >
+				<div class="text-center disable-select" style="padding-top: 30px; padding-bottom: 30px;">
+					<img id="avatar" class="backdrop linktree" >
 					<h2 style="color: #ffffff; padding-top: 20px;">Dio Nazzetta</h2>
 				</div>
 		</div>
 	</div>
 
+	<div class="container text-center">
+		<div id="msg1"></div>
+		<div id="msg2"></div>
+		<div id="msg3"></div>
+		<div id="msg4"></div>
+	</div>
 
 	<div class="container">
 	<div class="col-xs-12">
 			<div class="text-center">
 				<div id="WAButton" style="padding-bottom: 30px; display: none;">
-					<button onclick="toWpp()" type="button" class="btn btn-outline-light" style="width: 80%; padding-top:10px; padding-bottom:10px; font-weight: 800; background-color:#25d366;">Whatsapp</button>
+					<button onclick="toWpp()" type="button" class="btn btn-outline-light" style="width: 80%; padding-top:10px; padding-bottom:10px; font-weight: 800; /*background-color:#25d366;*/"></button>
 				</div>
 				<div style="padding-bottom: 30px;">
 					<button onclick="location.href='https://linkedin.com/in/nazzetta/'" type="button" class="btn btn-outline-light shake" style="width: 80%; padding-top:10px; padding-bottom:10px; font-weight: 800;">Connect on LinkedIn</button>
@@ -111,14 +117,30 @@
 			var xDiff = xDown - xUp;
 			var yDiff = yDown - yUp;
 
-			// most significant
-			if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {
-				if ( xDiff > 0 )		alert("left swipe");		// left swipe
-				else					alert("right swipe");		// right swipe
-			}
-			else {
-				if ( yDiff > 0 )		alert("up swipe");			// up swipe
-				else					alert("down swipe");		// down swipe
+			var avtDiv = document.getElementById("avatar");
+			var abox = avtDiv.getBoundingClientRect();
+
+			var avatarTop = avtDiv.offsetTop;
+			var avatarLft = avtDiv.offsetLeft;
+			var avatarRig = avtDiv.offsetLeft + avtDiv.offsetWidth;
+			var avatarBot = avtDiv.offsetTop  + avtDiv.offsetHeight;
+
+			// document.getElementById("msg1").innerHTML = "yDown: " + yDown + ", xDown: " + xDown;
+			// document.getElementById("msg2").innerHTML = "Top: " + avtDiv.offsetTop + " Left: " + avtDiv.offsetLeft;
+			// document.getElementById("msg3").innerHTML = "Hgt: " + avtDiv.offsetHeight + " Widt: " + avtDiv.offsetWidth;
+			// document.getElementById("msg4").innerHTML = "TLRB: " + avatarTop+" "+avatarLft+" "+avatarRig+" "+avatarBot;
+
+			if (xDown > abox.left && xDown < abox.right && yDown > abox.top && yDown < abox.bottom) {
+				// left/right swipe
+				if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {
+					if ( xDiff > 0 )		{  }
+					else					{  }
+				}
+				// up/down swipe
+				else {
+					if ( yDiff > 0 )		{  }
+					else					{ toggle_wppBtn(); }
+				}
 			}
 
 			// reset values
@@ -201,7 +223,7 @@
 		});
 
 		document.addEventListener('trplclick', function (event) {
-			toggle_wppBtn();
+			// toggle_wppBtn();
 			// console.log('This element has been triple clicked', event.detail.numberOfTripleClicks, 'times');
 		});
 
