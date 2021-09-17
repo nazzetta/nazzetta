@@ -1,0 +1,23 @@
+<h5>Test for Local GET request!</h5>
+<input type="submit" value="UP" onclick="submit(1)">
+<br>
+<input type="submit" value="DOWN" onclick="submit(0)">
+
+<script type="text/javascript">
+    function submit(up) {
+        var xhr = new XMLHttpRequest();
+        var url = 'http://lustre.local/';
+
+        if (up)     url += 'up';
+        else        url += 'down';
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+                // alert(xhr.response);
+            }
+        }
+        xhr.open('get', url, true);
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+        xhr.send();
+    }
+
+</script>
