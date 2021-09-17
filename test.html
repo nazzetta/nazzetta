@@ -1,24 +1,23 @@
-<h5>Test for Local GET request using IP</h5>
+<h5>Test for Local POST request</h5>
 <input type="submit" value="UP" onclick="submit(1)">
 <br>
 <input type="submit" value="DOWN" onclick="submit(0)">
 
 <script type="text/javascript">
     function submit(up) {
-        var xhr = new XMLHttpRequest();
-        // var url = 'http://lustre.local/';
-        var url = 'http://192.168.0.66/';
-
-        if (up)     url += 'up';
-        else        url += 'down';
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState === 4) {
-                // alert(xhr.response);
+        var http = new XMLHttpRequest();
+        http.open('POST', 'http://192.168.0.50/LED', true);
+        http.onreadystatechange = function() {
+            if(http.readyState == 4) {
+                if(http.status==200) {
+                    document.commandform.response.value="Bad JSON: "+http.responseText;
+                    document.commandform.response.value=JSON.stringify(JSON.parse(http.responseText), null, '\t');
+                } else {
+                    document.commandform.response.value="Error "+http.status;
+                }
             }
         }
-        xhr.open('get', url, true);
-        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
-        xhr.send();
+        http.send();
     }
 
 </script>
