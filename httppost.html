@@ -133,26 +133,31 @@
 			// svg.setAttribute("fill", "#5cceee");
 		}
 
+		var lastY = -1;
+
 		function handleTouchMove(evt) {
-			// if ( ! xDown || ! yDown )
-			// 	return;
+			// if ( xDown || yDown ) {
+			// }
 
 			var xUp = evt.touches[0].clientX;
 			var yUp = evt.touches[0].clientY;
-			var xPercent = 100*xUp/window.innerWidth;
-			var yPercent = 100-100*yUp/window.innerHeight;
+			var xPercent = (100*xUp/window.innerWidth).toFixed();
+			var yPercent = (100-100*yUp/window.innerHeight).toFixed();
 
 			// var x = event.touches[0].clientX;
 			// var y = event.touches[0].clientY;
 
-			var http = new XMLHttpRequest();
-			http.open('POST', 'http://esp8266.local/postform', true);
-			http.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-			http.send("bright=" + yPercent);
+			if (Math.abs(yPercent - lastY) >= 2) {
+				var http = new XMLHttpRequest();
+				http.open('POST', 'http://esp8266.local/postform', true);
+				http.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+				http.send("bright=" + yPercent);
+				lastY = yPercent;
+			}
 
 			// document.getElementById("msg1").innerHTML = xUp + ", " + yUp;
 			// document.getElementById("msg2").innerHTML = window.innerHeight + ", " + window.innerWidth;
-			// document.getElementById("demo").innerHTML = xPercent.toFixed() + "%, " + yPercent.toFixed() + "%";
+			document.getElementById("demo").innerHTML = xPercent + "%, " + yPercent + "%";
 
 			var xDiff = xDown - xUp;
 			var yDiff = yDown - yUp;
