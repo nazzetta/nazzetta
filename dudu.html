@@ -7,8 +7,8 @@
 <h2>Copia e cola os seguintes comandos, um por um, na merda do Terminal:</h2>
 
 <p>🔽 Drivers</p>
-<p>  sudo apt-get update</p>
-<p>  sudo apt-get install firmware-b43-installer</p>
+<p style="text-indent:10px;">  sudo apt-get update</p>
+<p style="text-indent:10px;">  sudo apt-get install firmware-b43-installer</p>
 <p>🔼 Drivers</p>
 
 <p></p>
@@ -43,6 +43,8 @@
 <p>“Hello from Docker! This message shows that your installation appears to be working correctly.“</p>
 
 
+
+<p>sudo docker run -d --name homeassistant --privileged --restart=unless-stopped -e TZ=America/Sao_Paulo -v /homeassistant/config:/config --network=host ghcr.io/home-assistant/home-assistant:stable</p>
 
 </body>
 </html>
