@@ -1,5 +1,38 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Dudu viado</h1>
+
 <p>sudo apt-get update</p>
 <p></p>
 <p>sudo apt-get upgrade</p>
 
 <p>sudo apt-get install ca-certificates curl gnupg lsb-release</p>
+
+<p>sudo mkdir -p /etc/apt/keyrings</p>
+
+<p>curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg</p>
+
+<p>echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null</p>
+
+<p>sudo apt-get update</p>
+
+<p>sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin</p>
+
+<p>sudo systemctl enable docker</p>
+
+<p>sudo usermod -aG docker eduardojatenegay</p>
+
+<p>newgrp docker</p>
+
+<p>sudo docker run hello-world</p>
+
+<p>Vê se você recebe essa mensagem como resposta:</p>
+
+<p>“Hello from Docker! This message shows that your installation appears to be working correctly.“</p>
+
+
+
+</body>
+</html>
