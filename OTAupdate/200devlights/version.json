@@ -1,5 +1,7 @@
 {
-	"activeUpdate": true,
+	"activeUpdate": false,
 	"version": "1.0.2",
+	"beta": "1.0.3",
+	"blink_file": "https://nazzetta.com/OTAupdate/200devlights/Blink.bin",
 	"file": "https://nazzetta.com/OTAupdate/200devlights/200devlights.bin"
 }
